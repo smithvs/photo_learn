@@ -10,6 +10,7 @@ namespace MyPhotoshop
 		{
 			var window=new MainWindow();
 			window.AddFilter (new LighteningFilter());
+			window.AddFilter(new GreyscaleFilter());
 			Application.Run (window);
 		}
 	}

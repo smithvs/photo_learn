@@ -76,6 +76,12 @@ namespace MyPhotoshop.Data
             return value;
         }
 
+        public Pixel ToGrey()
+        {
+            double mean = (r + g + b) / 3;
+            return new Pixel(mean, mean, mean);
+        }
+
         public static double Trim(double value)
         {
             if (value < 0)
