@@ -6,11 +6,12 @@ using System.Text;
 
 namespace MyPhotoshop
 {
-    public abstract class PixelFilter : IFilter
+    public abstract class PixelFilter : ParametrizedFilter
     {
-        public abstract ParameterInfo[] GetParameters();
-        protected abstract Pixel ProcessPixel(Pixel original, double[] parameters);
-        public Photo Process(Photo original, double[] parameters)
+        public PixelFilter(IParameters parameters) : base(parameters)
+        { }
+        protected abstract Pixel ProcessPixel(Pixel original, IParameters parameters);
+        public override Photo Process(Photo original, IParameters parameters)
         {
             var result = new Photo(original.Width, original.Height);
             for (int x = 0; x < result.Width; x++)

@@ -9,16 +9,12 @@ namespace MyPhotoshop
 {
     public class GreyscaleFilter : PixelFilter
     {
-        public override ParameterInfo[] GetParameters()
-        {
-            return new ParameterInfo[0];
-        }
-
+        public GreyscaleFilter() : base(new EmptyParameters()) { }
         public override string ToString()
         {
             return "Оттенки серого";
         }
-        protected override Pixel ProcessPixel(Pixel original, double[] parameters)
+        protected override Pixel ProcessPixel(Pixel original, IParameters parameters)
         {
             return original.ToGrey();
         }
